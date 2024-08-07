@@ -59,7 +59,7 @@ export default function App() {
 
   return (
     <div>
-      <h1>심심이와 대화하기</h1>
+      <h1>심심이</h1>
       <div>
         <div style={{ marginBottom: "10px" }}>
           <input
@@ -68,12 +68,18 @@ export default function App() {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            style={{ padding: "10px", width: "80%" }}
+            style={{ padding: "10px", width: "80%", borderRadius: "10px" }}
           />
           <button
             onClick={handleSend}
             disabled={loading}
-            style={{ padding: "10px", marginLeft: "10px" }}
+            style={{
+              padding: "10px",
+              marginLeft: "10px",
+              border: "none",
+              backgroundColor: "yellow",
+              borderRadius: "10px",
+            }}
           >
             {loading ? "로딩 중..." : "전송"}
           </button>
@@ -86,6 +92,8 @@ export default function App() {
             height: "400px",
             overflowY: "scroll",
             backgroundColor: "#f9f9f9",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
           {chatHistory.map((chat, index) => (
@@ -93,10 +101,10 @@ export default function App() {
               key={index}
               style={{
                 textAlign: chat.sender === "user" ? "right" : "left",
-                padding: "5px",
-                margin: "5px 0",
-                backgroundColor: chat.sender === "user" ? "#e0f7fa" : "#ffffff",
-                borderRadius: "5px",
+                padding: "0 5px",
+                margin: "5px",
+                backgroundColor: chat.sender === "user" ? "yellow" : "#ffffff",
+                borderRadius: "10px",
                 maxWidth: "70%",
                 alignSelf: chat.sender === "user" ? "flex-end" : "flex-start",
                 wordWrap: "break-word",
